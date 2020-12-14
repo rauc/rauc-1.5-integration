@@ -9,6 +9,10 @@ build systems.
 The examples have been derived from the current upstream versions, so some
 adjustment may be needed depending on the age of the existing project.
 
+The advisory to be published on the 21st December is available as
+https://github.com/rauc/rauc-1.5-integration/blob/master/CVE-2020-25860.md.
+This repository will also be made public at that point.
+
 ## OpenEmbedded/Yocto
 
 If the ``rauc-1.5.tar.xz`` archive is not available for download yet, copy the
