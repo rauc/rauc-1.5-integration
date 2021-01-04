@@ -73,3 +73,19 @@ If your system still uses an unspported version of OpenSSL and updating to
 1.1.1 together with RAUC 1.5 is not feasible, a backport patch
 (``0001-backport-to-OpenSSL-1.0.2.patch``) is available. Note that this patch
 does not have the same breadth of testing as the 1.5 release.
+
+## Build with Kernel (Headers) < 4.14
+
+In RAUC 1.5, the loop device ioctl ``LOOP_SET_BLOCK_SIZE`` is used to set the
+logical block size to 4096 for performance optimization.
+Not being able to set it is not critical and only noted by a debug level
+message.
+
+But as the ``LOOP_SET_BLOCK_SIZE`` symbol does not exists in kernel versions
+prior to 4.14, compilation with against these older kernel headers will fail.
+To resolve this, the symbol must optionally be defined in RAUC itself.
+A patch for this (``0001-src-mount.c-fix-build-with-kernel-4.14.patch``) is
+available (from https://github.com/rauc/rauc/pull/673).
+
+The fix will also be part of RAUC
+[1.5.1](https://github.com/rauc/rauc/milestone/12).
